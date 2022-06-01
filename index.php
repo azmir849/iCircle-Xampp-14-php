@@ -1,6 +1,6 @@
 <?php
 $ch =  curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/tamim');
+curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/testaccount');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 $result = json_decode($response);
@@ -262,7 +262,12 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="vedio">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Video</h4>
+                    <?php
+                    if(count($profile_video)>0){?>
+                        <h4>Video</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
                             <li><i class="fa-solid fa-video"></i></li>
