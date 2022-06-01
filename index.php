@@ -1,6 +1,6 @@
 <?php
 $ch =  curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/testaccount');
+curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/tamim');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 $result = json_decode($response);
@@ -28,7 +28,11 @@ $portfolios = $result->portfolios;
 $blogs = $result->blogs;
 $testimonials = $result->testimonials;
 
+
+
 $base_url = "https://icircles.app/";
+$authorImgUrl ="$base_url/$about->thumb";
+$authorBgUrl ="$base_url/$about->image";
 ?>
 
 
@@ -39,7 +43,7 @@ $base_url = "https://icircles.app/";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iCircles - Profile</title>
+    <?php ?><title>iCircles - Profile | <?=$about->username?></title><?php ?>
     <link rel="shortcut icon" href="images/bmana.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
@@ -73,7 +77,7 @@ $base_url = "https://icircles.app/";
                     <div class="profileImg">
                     <?php
                          if($about->image){?> 
-                          <img src=<?="$base_url/$about->thumb" ?> alt="">
+                          <img src=<?="$authorImgUrl" ?> alt="">
                          <?php
                          }
                         ?>
@@ -253,6 +257,7 @@ $base_url = "https://icircles.app/";
 
     <!--           Vedio Section Start 
     ----------------------------------------------->
+    
     <section>
         <div class="vedio">
             <div class="container">
@@ -269,16 +274,21 @@ $base_url = "https://icircles.app/";
                 </div>
                 <div class="vedio_wrapper">
                     <div class="row">
+                    <?php foreach ($profile_video as $key => $item) { ?>
                         <div class="col-md-12 col-lg-12">
                             <div class="vedio_wrap">
-                                <img src="images/v-1.png" alt="">
+                                <img src=<?="$authorBgUrl" ?> alt="">
                                 <div class="Overly">
                                     <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-circle-play"></i></a>
+                                        <a target="_blank" href=<?="https://icircles.app/uploads/video/$item->video"?>><i class="fa-solid fa-circle-play"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <?php
+                      }
+                    ?>
 
                     </div>
                 </div>
