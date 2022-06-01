@@ -806,25 +806,25 @@ $authorBgUrl = "$base_url/$about->image";
                 </div>
                 <div class="award_wrapper">
                     <div class="row">
-                    <?php foreach ($awards as $key => $item) {
+                        <?php foreach ($awards as $key => $item) {
                             $dateTimeString = $awards->from_date;
                             $datetime = new DateTime($dateTimeString);
                             $year = $datetime->format('Y');
 
                         ?>
-                             <div class="col-lg-12">
-                            <div class="award_wrap">
-                                <div class="award_text">
-                                    <h5><?= $item->title?></h5>
-                                    <h6><?=$year?></h6>
-                                    <p><?=$item->details?></p>
+                            <div class="col-lg-12">
+                                <div class="award_wrap">
+                                    <div class="award_text">
+                                        <h5><?= $item->title ?></h5>
+                                        <h6><?= $year ?></h6>
+                                        <p><?= $item->details ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
                         }
                         ?>
-                    
+
                     </div>
                 </div>
             </div>
@@ -964,55 +964,51 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="clients">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Clients</h4>
+                    <?php
+                    if (count($clients) > 0) { ?>
+                        <h4>Clients</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($clients) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="clients_wrapper">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="clients_wrap">
-                                <div class="clients_img">
+
+                        <?php foreach ($clients as $key => $item) {
+                            $dateTimeString = $clients->created_date;
+                            $datetime = new DateTime($dateTimeString);
+                            $year = $datetime->format('Y');
+
+                        ?>
+                            <div class="col-lg-12">
+                                <div class="clients_wrap">
+                                    <!-- <div class="clients_img">
                                     <img src="images/profileMAn.png" alt="">
-                                </div>
-                                <div class="clients_text">
-                                    <h4>Samsung IT Group 2021</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                    <h5>251 Connections</h5>
+                                </div> -->
+                                    <div class="clients_text">
+                                        <h4><?= $item->client_name ?> <?= $year ?></h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="clients_wrap">
-                                <div class="clients_img">
-                                    <img src="images/profileMAn.png" alt="">
-                                </div>
-                                <div class="clients_text">
-                                    <h4>Samsung IT Group 2021</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                    <h5>251 Connections</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="clients_wrap">
-                                <div class="clients_img">
-                                    <img src="images/profileMAn.png" alt="">
-                                </div>
-                                <div class="clients_text">
-                                    <h4>Samsung IT Group 2021</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                    <h5>251 Connections</h5>
-                                </div>
-                            </div>
-                        </div>
+
+                        <?php
+                        }
+                        ?>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -1028,8 +1024,10 @@ $authorBgUrl = "$base_url/$about->image";
             <div class="container">
                 <div class="sectionHeader">
                     <h4>Journal</h4>
+
                     <div class="sectionItem">
                         <ul>
+
                             <li><i class="fa-solid fa-video"></i></li>
                             <li><i class="fa-solid fa-eye"></i></li>
                             <li><i class="fa-solid fa-plus"></i></li>
@@ -1039,6 +1037,8 @@ $authorBgUrl = "$base_url/$about->image";
                 </div>
                 <div class="journal_wrapper">
                     <div class="row">
+
+
                         <div class="col-lg-1"></div>
                         <div class="col-lg-10">
                             <div class="journalImg">
@@ -1071,55 +1071,49 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="reffernce">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>References</h4>
+                    <?php
+                    if (count($references) > 0) { ?>
+                        <h4>References</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($references) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="reffernce_wrapper">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="reffernce_wrap">
-                                <div class="reffernce_img">
-                                    <img src="images/profileMAn.png" alt="">
-                                </div>
-                                <div class="reffernce_text">
-                                    <h4>Steve jobs</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                    <h5>251 Connections</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="reffernce_wrap">
-                                <div class="reffernce_img">
-                                    <img src="images/profileMAn.png" alt="">
-                                </div>
-                                <div class="reffernce_text">
-                                    <h4>Steve jobs</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                    <h5>251 Connections</h5>
+
+                        <?php foreach ($references as $key => $item) {
+
+                        ?>
+                            <div class="col-lg-12">
+                                <div class="reffernce_wrap">
+                                    <div class="reffernce_img">
+                                        <img src="images/profileMAn.png" alt="">
+                                    </div>
+                                    <div class="reffernce_text">
+                                        <h4><?= $item->name ?></h4>
+                                        <h4><?= $item->email ?></h4>
+                                        <p><?= $item->details ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="reffernce_wrap border_n">
-                                <div class="reffernce_img">
-                                    <img src="images/profileMAn.png" alt="">
-                                </div>
-                                <div class="reffernce_text">
-                                    <h4>Steve jobs</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                    <h5>251 Connections</h5>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -1134,37 +1128,63 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="endurosmnet">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Endurosmnet</h4>
+                    <?php
+                    if (count($testimonials) > 0) { ?>
+                        <h4>Endurosmnet</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($testimonials) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="endurosmnet_wrapper">
+
                     <div class="row">
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-10">
-                            <div class="endurosmnetImg">
-                                <img src="images/en.png" alt="">
+
+                    <?php foreach ($testimonials as $key => $item) {
+                            $dateTimeString = $testimonials->created_date;
+                            $datetime = new DateTime($dateTimeString);
+                            $year = $datetime->format('Y');
+                            $month = $datetime->format('M');
+                            $day = $datetime->format('D');
+                            $date = $datetime->format('d');
+
+                        ?>
+                            <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <div class="endurosmnetImg">
+                                    <img src=<?= "$base_url/$item->image" ?> alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                        </div>
+                        <div class="endurosmnetText">
+                            <div class="textLeft">
+                                <h4><?=$item->feedback_title?></h4>
+                                <h5><?=$item->client_name?></h5>
+                            </div>
+                            <div class="textRight">
+                                <h4><?=$day?>, <?=$month?> <?=$date?>, <?=$year?></h4>
                             </div>
                         </div>
-                        <div class="col-lg-1"></div>
+                        <p><?=$item->feedback?></p>
+                        <?php
+                        }
+                        ?>
+
                     </div>
-                    <div class="endurosmnetText">
-                        <div class="textLeft">
-                            <h4>Moscow wants ‘to destroy everything’ in Donbas</h4>
-                            <h5>London,UK</h5>
-                            <h6>2k view</h6>
-                        </div>
-                        <div class="textRight">
-                            <h4>Wednesday, May 25, 2022</h4>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis fugit veniam tempora laudantium odit reprehenderit corrupti, nemo explicabo architecto nihil iusto aut tempore animi enim suscipit voluptatum mollitia atque provident ea recusandae consequuntur natus. Voluptatem, impedit omnis provident est minus totam libero quis! Ad blanditiis impedit nulla corporis, aliquam fugit laborum provident saepe ab magni maxime natus modi quae! Est laudantium ea maiores libero. Possimus ipsum dolore qui ipsam animi quidem accusamus dolorem explicabo nobis id hic perspiciatis fugiat debitis harum, sequi est sint rerum ratione? Omnis quidem quasi vitae vel ducimus expedita repellat quibusdam corporis quam, assumenda, pariatur nisi.</p>
                 </div>
             </div>
         </div>
