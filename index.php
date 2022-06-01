@@ -1,6 +1,6 @@
 <?php
 $ch =  curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/jewel');
+curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/testaccount');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 $result = json_decode($response);
@@ -32,8 +32,8 @@ $testimonials = $result->testimonials;
 
 $base_url = "https://icircles.app/";
 $username = $about->username;
-$authorImgUrl ="$base_url/$about->thumb";
-$authorBgUrl ="$base_url/$about->image";
+$authorImgUrl = "$base_url/$about->thumb";
+$authorBgUrl = "$base_url/$about->image";
 
 ?>
 
@@ -45,7 +45,7 @@ $authorBgUrl ="$base_url/$about->image";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php ?><title>iCircles - Profile | <?=$about->username?></title><?php ?>
+    <?php ?><title>iCircles - Profile | <?= $about->username ?></title><?php ?>
     <link rel="shortcut icon" href="images/bmana.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
@@ -64,10 +64,10 @@ $authorBgUrl ="$base_url/$about->image";
                 <div class="header_top">
                     <div class="coverPhoto">
                         <?php
-                         if($about->image){?> 
-                          <img src=<?="$base_url/$about->image" ?> alt="">
-                         <?php
-                         }
+                        if ($about->image) { ?>
+                            <img src=<?= "$base_url/$about->image" ?> alt="">
+                        <?php
+                        }
                         ?>
 
                         <div class="Overly">
@@ -77,11 +77,11 @@ $authorBgUrl ="$base_url/$about->image";
                         </div>
                     </div>
                     <div class="profileImg">
-                    <?php
-                         if($about->image){?> 
-                          <img src=<?="$authorImgUrl" ?> alt="">
-                         <?php
-                         }
+                        <?php
+                        if ($about->image) { ?>
+                            <img src=<?= "$authorImgUrl" ?> alt="">
+                        <?php
+                        }
                         ?>
 
                         <div class="Overly">
@@ -152,22 +152,22 @@ $authorBgUrl ="$base_url/$about->image";
                                 </ul>
                             </div>
 
-                            <?php 
-                            if(count($microsites_verified_card)>0){?>
+                            <?php
+                            if (count($microsites_verified_card) > 0) { ?>
 
-                            <?php foreach ($microsites_verified_card as $key => $item) { ?>
-                                <div class="Company_logo">
-                                    <div class="logo"><img src=<?="https://icircles.app/uploads/micrositeslogo/$item->entity_logo"?> alt=""></div>
-                                    <div class="logoInfo">
-                                        <h4><?=$item->name?></h4>
-                                        <p class="text-center"><?=$item->designation?></p>
+                                <?php foreach ($microsites_verified_card as $key => $item) { ?>
+                                    <div class="Company_logo">
+                                        <div class="logo"><img src=<?= "https://icircles.app/uploads/micrositeslogo/$item->entity_logo" ?> alt=""></div>
+                                        <div class="logoInfo">
+                                            <h4><?= $item->name ?></h4>
+                                            <p class="text-center"><?= $item->designation ?></p>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php
+                                }
+                                ?>
                             <?php
                             }
-                            ?>
-                            <?php
-                             }
                             ?>
 
                         </div>
@@ -179,9 +179,9 @@ $authorBgUrl ="$base_url/$about->image";
                             <div class="bio_info">
                                 <h2>Hello I’m</h2>
                                 <?php
-                                ?><h3><?=$about->username ?>!</h3><?php
-                                ?><P><?=$about->about_me ?></p><?php
-                                 ?>
+                                ?><h3><?= $about->username ?>!</h3><?php
+                                                                    ?><P><?= $about->about_me ?></p><?php
+                                                                ?>
                             </div>
                         </div>
                     </div>
@@ -190,11 +190,11 @@ $authorBgUrl ="$base_url/$about->image";
                     <div class="col-md-6 col-lg-6">
                         <div class="importantLinks">
                             <?php
-                            if($about->web_site || $about->resume){?>
-                             <h4>Important Links :-</h4>
+                            if ($about->web_site || $about->resume) { ?>
+                                <h4>Important Links :-</h4>
                             <?php
                             }
-                             ?>
+                            ?>
 
                             <ul>
                                 <?php
@@ -206,45 +206,45 @@ $authorBgUrl ="$base_url/$about->image";
                                     if ($about->resume) { ?>
                                     <li>
                                     <li>My Resume: <a target="_blank" href=<?= "$base_url/$about->resume" ?>>Download Resume</a></li><?php
-                                        }
-                                    ?>
+                                                                                                                                    }
+                                                                                                                                        ?>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6">
                         <div class="iconLink">
                             <ul>
-                            <?php
-                             if($about->facebook){?>
-                                <li><a href=${about.facebook}><i class="fa-brands fa-facebook  fb"></i></a></li>
-                             <?php
-                             }
-                             if($about->twitter){?>
-                                 <li><a href=${about.twitter}><i class="fa-brands fa-twitter-square tr"></i></a></li>
-                             <?php
-                             }
-                             if($about->instagram){?>
-                                 <li><a href=${about.instagram}><i class="fa-brands fa-instagram-square ig"></i></a></li>
-                             <?php
-                             }
-                             if($about->linkedin){?>
-                                <li><a href=${about.linkedin}><i class="fa-brands fa-linkedin lk"></i></a></li>
-                             <?php
-                             }
-                             if($about->github){?>
-                                <li><a href=${about.github}><i class="fa-brands fa-github gh"></i></a></li>
-                             <?php
-                             }
-                             if($about->whatsapp){?>
-                                <li><a href=${about.whatsapp}><i class="fa-brands fa-whatsapp wapp"></i></a></li>
-                             <?php
-                             }
-                             if($about->skype){?>
-                           	    <li><a href=${about.skype}><i class="fa-brands fa-skype sk"></i></a></li>
-                             <?php
-                             }
-                            
-                            ?>
+                                <?php
+                                if ($about->facebook) { ?>
+                                    <li><a href=${about.facebook}><i class="fa-brands fa-facebook  fb"></i></a></li>
+                                <?php
+                                }
+                                if ($about->twitter) { ?>
+                                    <li><a href=${about.twitter}><i class="fa-brands fa-twitter-square tr"></i></a></li>
+                                <?php
+                                }
+                                if ($about->instagram) { ?>
+                                    <li><a href=${about.instagram}><i class="fa-brands fa-instagram-square ig"></i></a></li>
+                                <?php
+                                }
+                                if ($about->linkedin) { ?>
+                                    <li><a href=${about.linkedin}><i class="fa-brands fa-linkedin lk"></i></a></li>
+                                <?php
+                                }
+                                if ($about->github) { ?>
+                                    <li><a href=${about.github}><i class="fa-brands fa-github gh"></i></a></li>
+                                <?php
+                                }
+                                if ($about->whatsapp) { ?>
+                                    <li><a href=${about.whatsapp}><i class="fa-brands fa-whatsapp wapp"></i></a></li>
+                                <?php
+                                }
+                                if ($about->skype) { ?>
+                                    <li><a href=${about.skype}><i class="fa-brands fa-skype sk"></i></a></li>
+                                <?php
+                                }
+
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -259,43 +259,43 @@ $authorBgUrl ="$base_url/$about->image";
 
     <!--           Vedio Section Start 
     ----------------------------------------------->
-    
+
     <section>
         <div class="vedio">
             <div class="container">
                 <div class="sectionHeader">
-                    <?php
-                    if(count($profile_video)>0){?>
-                        <h4>Video</h4>
-                    <?php
-                    }
-                    ?>
+
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($profile_video) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="vedio_wrapper">
                     <div class="row">
-                    <?php foreach ($profile_video as $key => $item) { ?>
-                        <div class="col-md-12 col-lg-12">
-                            <div class="vedio_wrap">
-                                <img src=<?="$authorBgUrl" ?> alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a target="_blank" href=<?="https://icircles.app/uploads/video/$item->video"?>><i class="fa-solid fa-circle-play"></i></a>
+                        <?php foreach ($profile_video as $key => $item) { ?>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="vedio_wrap">
+                                    <img src=<?= "$authorBgUrl" ?> alt="">
+                                    <div class="Overly">
+                                        <div class="photoAdd">
+                                            <a target="_blank" href=<?= "https://icircles.app/uploads/video/$item->video" ?>><i class="fa-solid fa-circle-play"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
                         <?php
-                      }
-                    ?>
+                        }
+                        ?>
 
                     </div>
                 </div>
@@ -312,40 +312,45 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="gallery">
             <div class="container">
                 <div class="sectionHeader">
-                <?php
-                    if(count($profile_images)>0){?>
-                      <h4>Photo Gallery</h4>
+                    <?php
+                    if (count($profile_images) > 0) { ?>
+                        <h4>Photo Gallery</h4>
                     <?php
                     }
                     ?>
-                   
+
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($profile_images) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="gallery_wrapper">
                     <div class="row">
-                    <?php foreach ($profile_images as $key => $item) { ?>
-                        <div class="col-6 col-lg-4">
-                            <div class="gallery_wrap">
-                                <img src=<?="https://icircles.app/uploads/user/${username}/$item->image"?> alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-eye"></i></a>
+                        <?php foreach ($profile_images as $key => $item) { ?>
+                            <div class="col-6 col-lg-4">
+                                <div class="gallery_wrap">
+                                    <img src=<?= "https://icircles.app/uploads/user/${username}/$item->image" ?> alt="">
+                                    <div class="Overly">
+                                        <div class="photoAdd">
+                                            <a href="#"><i class="fa-solid fa-eye"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
                         <?php
-                      }
-                    ?>
-     
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -362,49 +367,54 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="experiance">
             <div class="container">
                 <div class="sectionHeader">
-                <?php
-                    if(count($experiences)>0){?>
-                       <h4>Experiance</h4>
+                    <?php
+                    if (count($experiences) > 0) { ?>
+                        <h4>Experiance</h4>
                     <?php
                     }
                     ?>
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($experiences) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="experiance_wrapper">
                     <div class="row">
-                        
 
-                    <?php foreach ($experiences as $key => $item) { 
-                        //experience year
-                        $dateTimeString = $experiences->from_date;
-                        $datetime = new DateTime($dateTimeString);
-                        $year = $datetime->format('Y');
-                        // echo '<script>console.log(' . json_encode($datetime->format('Y')) . ')</script>';
+
+                        <?php foreach ($experiences as $key => $item) {
+                            //experience year
+                            $dateTimeString = $experiences->from_date;
+                            $datetime = new DateTime($dateTimeString);
+                            $year = $datetime->format('Y');
+                            // echo '<script>console.log(' . json_encode($datetime->format('Y')) . ')</script>';
                         ?>
-                       
-                        <div class="col-lg-12">
-                            <div class="experiance_wrap">
-                                <div class="experiance_img">
-                                    <img src=<?="https://icircles.app/uploads/user/${username}/$item->company_logo"?> alt="">
-                                </div>
-                                <div class="experiance_text">
-                                    <h4><?=$item->company_name?> <?=$year?></h4>
-                                    <h5><?=$item->job_title?></h5>
-                                    <p><?=$item->details?></p>
+
+                            <div class="col-lg-12">
+                                <div class="experiance_wrap">
+                                    <div class="experiance_img">
+                                        <img src=<?= "https://icircles.app/uploads/user/${username}/$item->company_logo" ?> alt="">
+                                    </div>
+                                    <div class="experiance_text">
+                                        <h4><?= $item->company_name ?> <?= $year ?></h4>
+                                        <h5><?= $item->job_title ?></h5>
+                                        <p><?= $item->details ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         <?php
-                      }
-                    ?>
+                        }
+                        ?>
 
 
                     </div>
@@ -422,18 +432,23 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="skill">
             <div class="container">
                 <div class="sectionHeader">
-                <?php
-                    if(count($skills)>0){?>
-                       <h4>Skills</h4>
+                    <?php
+                    if (count($skills) > 0) { ?>
+                        <h4>Skills</h4>
                     <?php
                     }
                     ?>
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($skills) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -441,21 +456,21 @@ $authorBgUrl ="$base_url/$about->image";
 
                     <div class="row">
 
-                    <?php foreach ($skills as $key => $item) { ?>
-                        <div class="col-lg-12">
-                            <div class="skill_wrap">
-                                <div class="skill_text">
-                                    <h5><?=$item->name ?></h5>
-                                    <h5><?=$item->skill_level ?></h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
+                        <?php foreach ($skills as $key => $item) { ?>
+                            <div class="col-lg-12">
+                                <div class="skill_wrap">
+                                    <div class="skill_text">
+                                        <h5><?= $item->name ?></h5>
+                                        <h5><?= $item->skill_level ?></h5>
+                                        <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         <?php
-                      }
-                    ?>
-                       
+                        }
+                        ?>
+
                     </div>
 
                 </div>
@@ -472,47 +487,52 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="education">
             <div class="container">
                 <div class="sectionHeader">
-                <?php
-                    if(count($educations)>0){?>
-                       <h4>Education</h4>
+                    <?php
+                    if (count($educations) > 0) { ?>
+                        <h4>Education</h4>
                     <?php
                     }
                     ?>
-                  
+
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($educations) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="education_wrapper">
                     <div class="row">
 
-                    <?php foreach ($educations as $key => $item) {
-                        $dateTimeString = $experiences->from_date;
-                        $datetime = new DateTime($dateTimeString);
-                        $year = $datetime->format('Y');
+                        <?php foreach ($educations as $key => $item) {
+                            $dateTimeString = $experiences->from_date;
+                            $datetime = new DateTime($dateTimeString);
+                            $year = $datetime->format('Y');
 
-                         ?>
-                        <div class="col-lg-12">
-                            <div class="education_wrap">
-                                <!-- <div class="education_img">
+                        ?>
+                            <div class="col-lg-12">
+                                <div class="education_wrap">
+                                    <!-- <div class="education_img">
                                     <img src="images/ed.png" alt="">
                                 </div> -->
-                                <div class="education_text">
-                                    <h5><?=$item->institution_name?> <?= $year ?></h5>
-                                    <h5><?=$item->degree_name?></h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
+                                    <div class="education_text">
+                                        <h5><?= $item->institution_name ?> <?= $year ?></h5>
+                                        <h5><?= $item->degree_name ?></h5>
+                                        <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
-                      }
-                    ?>
-                       
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -528,41 +548,47 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="service">
             <div class="container">
                 <div class="sectionHeader">
-                <?php
-                    if(count($services)>0){?>
-                      <h4>Services</h4>
+                    <?php
+                    if (count($services) > 0) { ?>
+                        <h4>Services</h4>
                     <?php
                     }
                     ?>
 
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($services) > 0) { ?>
+
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="service_wrapper">
                     <div class="row">
 
-                    <?php foreach ($services as $key => $item) {
-                         ?>
-                         <div class="col-md-6 col-lg-4">
-                            <div class="service_wrap">
-                                <div class="serviceImg">
-                                    <img src=<?="$base_url/$item->thumb" ?> alt="">
-                                </div>
-                                <div class="servicetext">
-                                    <h4><?=$item->service_name?></h4>
-                                    <p><?=$item->details?></p>
+                        <?php foreach ($services as $key => $item) {
+                        ?>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service_wrap">
+                                    <div class="serviceImg">
+                                        <img src=<?= "$base_url/$item->thumb" ?> alt="">
+                                    </div>
+                                    <div class="servicetext">
+                                        <h4><?= $item->service_name ?></h4>
+                                        <p><?= $item->details ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
-                      }
-                    ?>        
+                        }
+                        ?>
 
                     </div>
                 </div>
@@ -578,84 +604,48 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="language">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Language</h4>
+                    <?php
+                    if (count($languages) > 0) { ?>
+                        <h4>Language</h4>
+                    <?php
+                    }
+                    ?>
+
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($languages) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="language_wrapper">
                     <div class="row">
-                        <div class="col-4 col-lg-2">
-                            <div class="language_wrap">
-                                <div class="language_img">
-                                    <img src="images/bd.png" alt="">
-                                </div>
-                                <div class="language_text">
-                                    <h4>Bangla</h4>
-                                    <h5>Advance</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 col-lg-2">
-                            <div class="language_wrap">
-                                <div class="language_img">
-                                    <img src="images/bd.png" alt="">
-                                </div>
-                                <div class="language_text">
-                                    <h4>English</h4>
-                                    <h5>Basic</h5>
+
+                        <?php foreach ($languages as $key => $item) {
+                        ?>
+                            <div class="col-4 col-lg-2">
+                                <div class="language_wrap">
+                                    <!-- <div class="language_img">
+                                        <img src="images/bd.png" alt="">
+                                    </div> -->
+                                    <div class="language_text">
+                                        <h4><?=$item->title?></h4>
+                                        <h5><?=$item->level?></h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-4 col-lg-2">
-                            <div class="language_wrap">
-                                <div class="language_img">
-                                    <img src="images/bd.png" alt="">
-                                </div>
-                                <div class="language_text">
-                                    <h4>Hindi</h4>
-                                    <h5>Intermediate</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4  col-lg-2">
-                            <div class="language_wrap">
-                                <div class="language_img">
-                                    <img src="images/bd.png" alt="">
-                                </div>
-                                <div class="language_text">
-                                    <h4>Frence</h4>
-                                    <h5>Advance</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 col-lg-2">
-                            <div class="language_wrap">
-                                <div class="language_img">
-                                    <img src="images/bd.png" alt="">
-                                </div>
-                                <div class="language_text">
-                                    <h4>Urdu</h4>
-                                    <h5>Basic</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 col-lg-2">
-                            <div class="language_wrap">
-                                <div class="language_img">
-                                    <img src="images/bd.png" alt="">
-                                </div>
-                                <div class="language_text">
-                                    <h4>German</h4>
-                                    <h5>Intermediate</h5>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
+
+
                     </div>
                 </div>
             </div>
