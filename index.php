@@ -472,7 +472,13 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="education">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Education</h4>
+                <?php
+                    if(count($educations)>0){?>
+                       <h4>Education</h4>
+                    <?php
+                    }
+                    ?>
+                  
                     <div class="sectionItem">
                         <ul>
                             <li><i class="fa-solid fa-video"></i></li>
@@ -484,39 +490,29 @@ $authorBgUrl ="$base_url/$about->image";
                 </div>
                 <div class="education_wrapper">
                     <div class="row">
+
+                    <?php foreach ($educations as $key => $item) {
+                        $dateTimeString = $experiences->from_date;
+                        $datetime = new DateTime($dateTimeString);
+                        $year = $datetime->format('Y');
+
+                         ?>
                         <div class="col-lg-12">
                             <div class="education_wrap">
-                                <div class="education_img">
+                                <!-- <div class="education_img">
                                     <img src="images/ed.png" alt="">
-                                </div>
+                                </div> -->
                                 <div class="education_text">
-                                    <h5>North South University Gragution 2020</h5>
+                                    <h5><?=$item->institution_name?> <?= $year ?></h5>
+                                    <h5><?=$item->degree_name?></h5>
                                     <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="education_wrap">
-                                <div class="education_img">
-                                    <img src="images/ed.png" alt="">
-                                </div>
-                                <div class="education_text">
-                                    <h5>North South University Gragution 2020</h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="education_wrap border_n">
-                                <div class="education_img">
-                                    <img src="images/ed.png" alt="">
-                                </div>
-                                <div class="education_text">
-                                    <h5>North South University Gragution 2020</h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                      }
+                    ?>
+                       
                     </div>
                 </div>
             </div>
@@ -532,7 +528,13 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="service">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Services</h4>
+                <?php
+                    if(count($services)>0){?>
+                      <h4>Services</h4>
+                    <?php
+                    }
+                    ?>
+
                     <div class="sectionItem">
                         <ul>
                             <li><i class="fa-solid fa-video"></i></li>
@@ -544,39 +546,24 @@ $authorBgUrl ="$base_url/$about->image";
                 </div>
                 <div class="service_wrapper">
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
+
+                    <?php foreach ($services as $key => $item) {
+                         ?>
+                         <div class="col-md-6 col-lg-4">
                             <div class="service_wrap">
                                 <div class="serviceImg">
-                                    <img src="images/s1.jpg" alt="">
+                                    <img src=<?="$base_url/$item->thumb" ?> alt="">
                                 </div>
                                 <div class="servicetext">
-                                    <h4>Business Card Design</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ...</p>
+                                    <h4><?=$item->service_name?></h4>
+                                    <p><?=$item->details?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="service_wrap">
-                                <div class="serviceImg">
-                                    <img src="images/s1.jpg" alt="">
-                                </div>
-                                <div class="servicetext">
-                                    <h4>Business Card Design</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4">
-                            <div class="service_wrap">
-                                <div class="serviceImg">
-                                    <img src="images/s1.jpg" alt="">
-                                </div>
-                                <div class="servicetext">
-                                    <h4>Business Card Design</h4>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ...</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                      }
+                    ?>        
+
                     </div>
                 </div>
             </div>
