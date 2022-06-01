@@ -181,7 +181,7 @@ $authorBgUrl = "$base_url/$about->image";
                                 <?php
                                 ?><h3><?= $about->username ?>!</h3><?php
                                                                     ?><P><?= $about->about_me ?></p><?php
-                                                                ?>
+                                                                                                    ?>
                             </div>
                         </div>
                     </div>
@@ -512,7 +512,7 @@ $authorBgUrl = "$base_url/$about->image";
                     <div class="row">
 
                         <?php foreach ($educations as $key => $item) {
-                            $dateTimeString = $experiences->from_date;
+                            $dateTimeString = $educations->from_date;
                             $datetime = new DateTime($dateTimeString);
                             $year = $datetime->format('Y');
 
@@ -636,8 +636,8 @@ $authorBgUrl = "$base_url/$about->image";
                                         <img src="images/bd.png" alt="">
                                     </div> -->
                                     <div class="language_text">
-                                        <h4><?=$item->title?></h4>
-                                        <h5><?=$item->level?></h5>
+                                        <h4><?= $item->title ?></h4>
+                                        <h5><?= $item->level ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -782,45 +782,49 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="award">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Awards</h4>
+                    <?php
+                    if (count($awards) > 0) { ?>
+                        <h4>Awards</h4>
+                    <?php
+                    }
+                    ?>
+
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($awards) > 0) { ?>
+
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="award_wrapper">
                     <div class="row">
-                        <div class="col-lg-12">
+                    <?php foreach ($awards as $key => $item) {
+                            $dateTimeString = $awards->from_date;
+                            $datetime = new DateTime($dateTimeString);
+                            $year = $datetime->format('Y');
+
+                        ?>
+                             <div class="col-lg-12">
                             <div class="award_wrap">
                                 <div class="award_text">
-                                    <h5>The Booker Prize</h5>
-                                    <h6>2021</h6>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
+                                    <h5><?= $item->title?></h5>
+                                    <h6><?=$year?></h6>
+                                    <p><?=$item->details?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="award_wrap">
-                                <div class="award_text">
-                                    <h5>The Booker Prize</h5>
-                                    <h6>2021</h6>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="award_wrap border_n">
-                                <div class="award_text">
-                                    <h5>The Booker Prize</h5>
-                                    <h6>2021</h6>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
+                    
                     </div>
                 </div>
             </div>
