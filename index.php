@@ -34,6 +34,7 @@ $base_url = "https://icircles.app/";
 $username = $about->username;
 $authorImgUrl ="$base_url/$about->thumb";
 $authorBgUrl ="$base_url/$about->image";
+
 ?>
 
 
@@ -361,7 +362,12 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="experiance">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Experiance</h4>
+                <?php
+                    if(count($experiences)>0){?>
+                       <h4>Experiance</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
                             <li><i class="fa-solid fa-video"></i></li>
@@ -373,42 +379,34 @@ $authorBgUrl ="$base_url/$about->image";
                 </div>
                 <div class="experiance_wrapper">
                     <div class="row">
+                        
+
+                    <?php foreach ($experiences as $key => $item) { 
+                        //experience year
+                        $dateTimeString = $experiences->from_date;
+                        $datetime = new DateTime($dateTimeString);
+                        $year = $datetime->format('Y');
+                        // echo '<script>console.log(' . json_encode($datetime->format('Y')) . ')</script>';
+                        ?>
+                       
                         <div class="col-lg-12">
                             <div class="experiance_wrap">
                                 <div class="experiance_img">
-                                    <img src="images/ex-1.jpg" alt="">
+                                    <img src=<?="https://icircles.app/uploads/user/${username}/$item->company_logo"?> alt="">
                                 </div>
                                 <div class="experiance_text">
-                                    <h4>Samsung IT Group 2021</h4>
-                                    <h5>Motion Graphics and UI/UX Designer</h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
+                                    <h4><?=$item->company_name?> <?=$year?></h4>
+                                    <h5><?=$item->job_title?></h5>
+                                    <p><?=$item->details?></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="experiance_wrap">
-                                <div class="experiance_img">
-                                    <img src="images/ex-1.jpg" alt="">
-                                </div>
-                                <div class="experiance_text">
-                                    <h4>Samsung IT Group 2021</h4>
-                                    <h5>Motion Graphics and UI/UX Designer</h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="experiance_wrap border_n">
-                                <div class="experiance_img">
-                                    <img src="images/ex-1.jpg" alt="">
-                                </div>
-                                <div class="experiance_text">
-                                    <h4>Samsung IT Group 2021</h4>
-                                    <h5>Motion Graphics and UI/UX Designer</h5>
-                                    <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's alsoLorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also ... ...</p>
-                                </div>
-                            </div>
-                        </div>
+
+                        <?php
+                      }
+                    ?>
+
+
                     </div>
                 </div>
             </div>
@@ -475,7 +473,7 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="education">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Experiance</h4>
+                    <h4>Education</h4>
                     <div class="sectionItem">
                         <ul>
                             <li><i class="fa-solid fa-video"></i></li>
