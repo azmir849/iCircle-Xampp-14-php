@@ -1,6 +1,6 @@
 <?php
 $ch =  curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/testaccount');
+curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/jewel');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 $result = json_decode($response);
@@ -31,6 +31,7 @@ $testimonials = $result->testimonials;
 
 
 $base_url = "https://icircles.app/";
+$username = $about->username;
 $authorImgUrl ="$base_url/$about->thumb";
 $authorBgUrl ="$base_url/$about->image";
 ?>
@@ -310,7 +311,13 @@ $authorBgUrl ="$base_url/$about->image";
         <div class="gallery">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Photo Gallery</h4>
+                <?php
+                    if(count($profile_images)>0){?>
+                      <h4>Photo Gallery</h4>
+                    <?php
+                    }
+                    ?>
+                   
                     <div class="sectionItem">
                         <ul>
                             <li><i class="fa-solid fa-video"></i></li>
@@ -322,9 +329,10 @@ $authorBgUrl ="$base_url/$about->image";
                 </div>
                 <div class="gallery_wrapper">
                     <div class="row">
+                    <?php foreach ($profile_images as $key => $item) { ?>
                         <div class="col-6 col-lg-4">
                             <div class="gallery_wrap">
-                                <img src="images/v-1.png" alt="">
+                                <img src=<?="https://icircles.app/uploads/user/${username}/$item->image"?> alt="">
                                 <div class="Overly">
                                     <div class="photoAdd">
                                         <a href="#"><i class="fa-solid fa-eye"></i></a>
@@ -332,56 +340,11 @@ $authorBgUrl ="$base_url/$about->image";
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 col-lg-4">
-                            <div class="gallery_wrap">
-                                <img src="images/v-1.png" alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                            <div class="gallery_wrap">
-                                <img src="images/v-1.png" alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                            <div class="gallery_wrap">
-                                <img src="images/v-1.png" alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                            <div class="gallery_wrap">
-                                <img src="images/v-1.png" alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-lg-4">
-                            <div class="gallery_wrap">
-                                <img src="images/v-1.png" alt="">
-                                <div class="Overly">
-                                    <div class="photoAdd">
-                                        <a href="#"><i class="fa-solid fa-eye"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <?php
+                      }
+                    ?>
+     
                     </div>
                 </div>
             </div>
