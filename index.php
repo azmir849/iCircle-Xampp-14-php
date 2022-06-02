@@ -1,6 +1,6 @@
 <?php
 $ch =  curl_init();
-curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/testaccount');
+curl_setopt($ch, CURLOPT_URL, 'http://icircles.app/api/profile/usermicrosite/tamim');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 $result = json_decode($response);
@@ -23,9 +23,9 @@ $profile_images = $result->profile_images;
 $profile_video = $result->profile_video;
 $microsites = $result->microsites;
 $microsites_verified_card = $result->microsites_verified_card;
-// echo '<script>console.log('.json_encode($microsites_verified_card->length).')</script>';
 $portfolios = $result->portfolios;
 $blogs = $result->blogs;
+echo '<script>console.log(' . json_encode(count($blogs)) . ')</script>';
 $testimonials = $result->testimonials;
 
 
@@ -180,8 +180,8 @@ $authorBgUrl = "$base_url/$about->image";
                                 <h2>Hello I’m</h2>
                                 <?php
                                 ?><h3><?= $about->username ?>!</h3><?php
-                                                                    ?><P><?= $about->about_me ?></p><?php
-                                                                                                    ?>
+                                ?><P><?= $about->about_me ?></p><?php
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -206,8 +206,8 @@ $authorBgUrl = "$base_url/$about->image";
                                     if ($about->resume) { ?>
                                     <li>
                                     <li>My Resume: <a target="_blank" href=<?= "$base_url/$about->resume" ?>>Download Resume</a></li><?php
-                                                                                                                                    }
-                                                                                                                                        ?>
+                                                                                                                                                                }
+                                                                                                                                                            ?>
                             </ul>
                         </div>
                     </div>
@@ -264,7 +264,12 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="vedio">
             <div class="container">
                 <div class="sectionHeader">
-
+                    <?php
+                    if (count($profile_video) > 0) { ?>
+                        <h4>Video</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
                             <?php
@@ -1023,46 +1028,68 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="journal">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Journal</h4>
-
+                    <?php
+                    if (!empty($blogs)) { ?>
+                        <h4>Journal</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
+                            <?php
+                            if (!empty($blogs)) { ?>
 
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
                 <div class="journal_wrapper">
                     <div class="row">
 
+                    <?php
+                    if(!empty($blogs)){
+                            $dateTimeString = $blogs->created_date;
+                            $datetime = new DateTime($dateTimeString);
+                            $year = $datetime->format('Y');
+                            $month = $datetime->format('M');
+                            $day = $datetime->format('D');
+                            $date = $datetime->format('d');
 
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-10">
-                            <div class="journalImg">
-                                <img src="images/burger.png" alt="">
+                        ?>
+                            <div class="row">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-10">
+                                    <div class="endurosmnetImg">
+                                        <img src=<?= "$base_url/$blogs->image" ?> alt="" width="100%" height="100%">
+                                    </div>
+                                </div>
+                                <div class="col-lg-1"></div>
                             </div>
-                        </div>
-                        <div class="col-lg-1"></div>
+                            <div class="endurosmnetText">
+                                <div class="textLeft">
+                                    <h4><?= $blogs->title ?></h4>
+                                    <h5><?= $blogs->cat_name ?></h5>
+                                </div>
+                                <div class="textRight">
+                                    <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
+                                </div>
+                            </div>
+                            <p><?= $blogs->description ?></p>
+                        <?php
+                    }
+                        ?>
                     </div>
-                    <div class="jurnalText">
-                        <div class="textLeft">
-                            <h4>Food Blog</h4>
-                            <h5>London,UK</h5>
-                            <h6>2k view</h6>
-                        </div>
-                        <div class="textRight">
-                            <h4>Wednesday, May 25, 2022</h4>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis fugit veniam tempora laudantium odit reprehenderit corrupti, nemo explicabo architecto nihil iusto aut tempore animi enim suscipit voluptatum mollitia atque provident ea recusandae consequuntur natus. Voluptatem, impedit omnis provident est minus totam libero quis! Ad blanditiis impedit nulla corporis, aliquam fugit laborum provident saepe ab magni maxime natus modi quae! Est laudantium ea maiores libero. Possimus ipsum dolore qui ipsam animi quidem accusamus dolorem explicabo nobis id hic perspiciatis fugiat debitis harum, sequi est sint rerum ratione? Omnis quidem quasi vitae vel ducimus expedita repellat quibusdam corporis quam, assumenda, pariatur nisi.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!--      Jurnal Section Start 
+    <!--      Jurnal Section End 
     ----------------------------------------------->
 
     <!--      Refference Section Start 
@@ -1152,7 +1179,7 @@ $authorBgUrl = "$base_url/$about->image";
 
                     <div class="row">
 
-                    <?php foreach ($testimonials as $key => $item) {
+                        <?php foreach ($testimonials as $key => $item) {
                             $dateTimeString = $testimonials->created_date;
                             $datetime = new DateTime($dateTimeString);
                             $year = $datetime->format('Y');
@@ -1162,24 +1189,25 @@ $authorBgUrl = "$base_url/$about->image";
 
                         ?>
                             <div class="row">
-                            <div class="col-lg-1"></div>
-                            <div class="col-lg-10">
-                                <div class="endurosmnetImg">
-                                    <img src=<?= "$base_url/$item->image" ?> alt="">
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-10">
+                                    <div class="endurosmnetImg">
+                                    
+                                        <img src=<?= "$base_url/$item->image" ?> alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-1"></div>
+                            </div>
+                            <div class="endurosmnetText">
+                                <div class="textLeft">
+                                    <h4><?= $item->feedback_title ?></h4>
+                                    <h5><?= $item->client_name ?></h5>
+                                </div>
+                                <div class="textRight">
+                                    <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
                                 </div>
                             </div>
-                            <div class="col-lg-1"></div>
-                        </div>
-                        <div class="endurosmnetText">
-                            <div class="textLeft">
-                                <h4><?=$item->feedback_title?></h4>
-                                <h5><?=$item->client_name?></h5>
-                            </div>
-                            <div class="textRight">
-                                <h4><?=$day?>, <?=$month?> <?=$date?>, <?=$year?></h4>
-                            </div>
-                        </div>
-                        <p><?=$item->feedback?></p>
+                            <p><?= $item->feedback ?></p>
                         <?php
                         }
                         ?>
