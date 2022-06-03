@@ -1244,9 +1244,6 @@ p {
   margin-top: 20px;
   border-radius: 8px;
 }
-.interest .interests_wrapper .tab-content .tab-pane .interestsItem h5 {
-color: #7c7c7c;
-}
 
 .interest .interests_wrapper .tab-content .tab-pane .interestsItem img {
   width: 100%;
@@ -1438,6 +1435,7 @@ color: #7c7c7c;
 .reffernce .reffernce_wrapper .reffernce_wrap {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #cfcfcf;
   padding: 15px 0;
   margin-top: 10px;
 }

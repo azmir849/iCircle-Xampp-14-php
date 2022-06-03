@@ -25,12 +25,12 @@ $microsites = $result->microsites;
 $microsites_verified_card = $result->microsites_verified_card;
 $portfolios = $result->portfolios;
 $blogs = $result->blogs;
-echo '<script>console.log(' . json_encode(count($blogs)) . ')</script>';
+// echo '<script>console.log(' . json_encode(count($blogs)) . ')</script>';
 $testimonials = $result->testimonials;
 
 
 
-$base_url = "https://icircles.app/";
+$base_url = "https://icircles.app";
 $username = $about->username;
 $authorImgUrl = "$base_url/$about->thumb";
 $authorBgUrl = "$base_url/$about->image";
@@ -53,6 +53,8 @@ $authorBgUrl = "$base_url/$about->image";
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+     <!-- Import dynamic script from js -->
+	<script src="./js/dynamicScript.js"></script>
 </head>
 
 <body>
@@ -180,8 +182,8 @@ $authorBgUrl = "$base_url/$about->image";
                                 <h2>Hello I’m</h2>
                                 <?php
                                 ?><h3><?= $about->username ?>!</h3><?php
-                                ?><P><?= $about->about_me ?></p><?php
-                                ?>
+                                                                    ?><P><?= $about->about_me ?></p><?php
+                                                                                                    ?>
                             </div>
                         </div>
                     </div>
@@ -206,8 +208,8 @@ $authorBgUrl = "$base_url/$about->image";
                                     if ($about->resume) { ?>
                                     <li>
                                     <li>My Resume: <a target="_blank" href=<?= "$base_url/$about->resume" ?>>Download Resume</a></li><?php
-                                                                                                                                                                }
-                                                                                                                                                            ?>
+                                                                                                                                    }
+                                                                                                                                        ?>
                             </ul>
                         </div>
                     </div>
@@ -662,7 +664,7 @@ $authorBgUrl = "$base_url/$about->image";
 
     <!--      Portfolio Section Start
     ----------------------------------------------->
-    <section>
+    <section id="portfolioSection">
         <div class="portfolio">
             <div class="container">
                 <div class="sectionHeader">
@@ -677,104 +679,31 @@ $authorBgUrl = "$base_url/$about->image";
                     </div>
                 </div>
                 <div class="portfolio_wrapper">
-                    <!-- Portfolio Button -->
+                <!-- Portfolio Button -->
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Graphic</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">3d Art</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Animation</button>
-                        </li>
+                        
                     </ul>
 
-                    <!-- portfolio Items -->
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <div class="port_details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsum minima laudantium non, totam iure soluta saepe beatae ipsam architecto est maxime illo sed dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus accusamus consequatur hic fuga iusto ipsam nemo eveniet. Totam ipsam aut ducimus culpa repudiandae vitae quibusdam molestiae ut?</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <div class="port_details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsum minima laudantium non, totam iure soluta saepe beatae ipsam architecto est maxime illo sed dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus accusamus consequatur hic fuga iusto ipsam nemo eveniet. Totam ipsam aut ducimus culpa repudiandae vitae quibusdam molestiae ut?</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                            <div class="port_details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsum minima laudantium non, totam iure soluta saepe beatae ipsam architecto est maxime illo sed dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus accusamus consequatur hic fuga iusto ipsam nemo eveniet. Totam ipsam aut ducimus culpa repudiandae vitae quibusdam molestiae ut?</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="portItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <!-- portfolio Items -->
+                      <div class="tab-content mb-2" id="pills-tabContent0">
+                       
+                      </div>
+                      <div style="display: none;" class="tab-content mb-2" id="pills-tabContent1">
+                       
+                      </div>
+                      <div style="display: none;" class="tab-content mb-2" id="pills-tabContent2">
+                       
+                      </div>
+                      <div style="display: none;" class="tab-content mb-2" id="pills-tabContent3">
+                       
+                      </div>
+                      <div style="display: none;" class="tab-content mb-2" id="pills-tabContent4">
+                       
+                      </div>
+                      <div style="display: none;" class="tab-content mb-2" id="pills-tabContent5">
+                       
+                      </div>
+                      
                 </div>
             </div>
         </div>
@@ -846,115 +775,64 @@ $authorBgUrl = "$base_url/$about->image";
         <div class="interest">
             <div class="container">
                 <div class="sectionHeader">
-                    <h4>Interests</h4>
+                    <?php
+                    if (count($interests) > 0) { ?>
+                        <h4>Interests</h4>
+                    <?php
+                    }
+                    ?>
                     <div class="sectionItem">
                         <ul>
-                            <li><i class="fa-solid fa-video"></i></li>
-                            <li><i class="fa-solid fa-eye"></i></li>
-                            <li><i class="fa-solid fa-plus"></i></li>
-                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            if (count($interests) > 0) { ?>
+                                <li><i class="fa-solid fa-video"></i></li>
+                                <li><i class="fa-solid fa-eye"></i></li>
+                                <li><i class="fa-solid fa-plus"></i></li>
+                                <li><i class="fa-solid fa-pen-to-square"></i></li>
+                            <?php
+                            }
+                            ?>
+
                         </ul>
                     </div>
                 </div>
                 <div class="interests_wrapper">
-                    <!-- Portfolio Button -->
-                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-h-tab" data-bs-toggle="pill" data-bs-target="#pills-h" type="button" role="tab" aria-controls="pills-h" aria-selected="true">Traveling</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-p-tab" data-bs-toggle="pill" data-bs-target="#pills-p" type="button" role="tab" aria-controls="pills-p" aria-selected="false">Music</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-c-tab" data-bs-toggle="pill" data-bs-target="#pills-c" type="button" role="tab" aria-controls="pills-c" aria-selected="false">Writhing</button>
-                        </li>
-                    </ul>
 
-                    <!-- portfolio Items -->
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-h" role="tabpanel" aria-labelledby="pills-h-tab">
-                            <div class="interests_details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsum minima laudantium non, totam iure soluta saepe beatae ipsam architecto est maxime illo sed dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus accusamus consequatur hic fuga iusto ipsam nemo eveniet. Totam ipsam aut ducimus culpa repudiandae vitae quibusdam molestiae ut?</p>
-                            </div>
+                <?php
+                    if (count($interests) > 0) { ?>
+                       <div class="tab-content">
+                        <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-h-tab">
                             <div class="row">
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
+                                <?php foreach ($interests as $key => $item)
+                                 {
+                                    $string = strip_tags($item->details);
+                                    if (strlen($string) > 200) {
+                                    
+                                        // truncate string
+                                        $stringCut = substr($string, 0, 200);
+                                        $endPoint = strrpos($stringCut, ' ');
+                                    
+                                        //if the string doesn't contain any space then it will cut without word basis.
+                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                    }
+                                    ?>
+                                    
+                                    <div class="col-6 col-lg-3">
+                                        <div class="interestsItem">
+                                            <h3 class="text-center pt-3"><?= $item->title ?></h3>
+                                            <h5 class="text-center mt-2 p-2"><?= $string?></h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-p" role="tabpanel" aria-labelledby="pills-p-tab">
-                            <div class="interests_details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsum minima laudantium non, totam iure soluta saepe beatae ipsam architecto est maxime illo sed dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus accusamus consequatur hic fuga iusto ipsam nemo eveniet. Totam ipsam aut ducimus culpa repudiandae vitae quibusdam molestiae ut?</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-c" role="tabpanel" aria-labelledby="pills-c-tab">
-                            <div class="interests_details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ipsum minima laudantium non, totam iure soluta saepe beatae ipsam architecto est maxime illo sed dolor! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus accusamus consequatur hic fuga iusto ipsam nemo eveniet. Totam ipsam aut ducimus culpa repudiandae vitae quibusdam molestiae ut?</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-3">
-                                    <div class="interestsItem">
-                                        <img src="images/s1.jpg" alt="">
-                                    </div>
-                                </div>
+                                <?php
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>
-
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -1000,9 +878,9 @@ $authorBgUrl = "$base_url/$about->image";
                         ?>
                             <div class="col-lg-12">
                                 <div class="clients_wrap">
-                                    <!-- <div class="clients_img">
-                                    <img src="images/profileMAn.png" alt="">
-                                </div> -->
+                                    <div class="clients_img">
+                                    <img src=<?= "$base_url/$item->image" ?> alt="">
+                                </div>
                                     <div class="clients_text">
                                         <h4><?= $item->client_name ?> <?= $year ?></h4>
                                     </div>
@@ -1052,8 +930,8 @@ $authorBgUrl = "$base_url/$about->image";
                 <div class="journal_wrapper">
                     <div class="row">
 
-                    <?php
-                    if(!empty($blogs)){
+                        <?php
+                        if (!empty($blogs)) {
                             $dateTimeString = $blogs->created_date;
                             $datetime = new DateTime($dateTimeString);
                             $year = $datetime->format('Y');
@@ -1071,7 +949,7 @@ $authorBgUrl = "$base_url/$about->image";
                                 </div>
                                 <div class="col-lg-1"></div>
                             </div>
-                            <div class="endurosmnetText">
+                            <div class="endurosmnetText mt-3">
                                 <div class="textLeft">
                                     <h4><?= $blogs->title ?></h4>
                                     <h5><?= $blogs->cat_name ?></h5>
@@ -1082,7 +960,7 @@ $authorBgUrl = "$base_url/$about->image";
                             </div>
                             <p><?= $blogs->description ?></p>
                         <?php
-                    }
+                        }
                         ?>
                     </div>
                 </div>
@@ -1127,10 +1005,8 @@ $authorBgUrl = "$base_url/$about->image";
                             <div class="col-lg-12">
                                 <div class="reffernce_wrap">
                                     <div class="reffernce_img">
-                                        <img src="images/profileMAn.png" alt="">
-                                    </div>
-                                    <div class="reffernce_text">
-                                        <h4><?= $item->name ?></h4>
+                                        <!-- <img src="images/profileMAn.png" alt=""> -->
+                                        <h2><?= $item->name ?></h2>
                                         <h4><?= $item->email ?></h4>
                                         <p><?= $item->details ?></p>
                                     </div>
@@ -1157,7 +1033,7 @@ $authorBgUrl = "$base_url/$about->image";
                 <div class="sectionHeader">
                     <?php
                     if (count($testimonials) > 0) { ?>
-                        <h4>Endurosmnet</h4>
+                        <h4>Endurosment</h4>
                     <?php
                     }
                     ?>
@@ -1187,28 +1063,45 @@ $authorBgUrl = "$base_url/$about->image";
                             $day = $datetime->format('D');
                             $date = $datetime->format('d');
 
-                        ?>
-                            <div class="row">
-                                <div class="col-lg-1"></div>
-                                <div class="col-lg-10">
-                                    <div class="endurosmnetImg">
-                                    
-                                        <img src=<?= "$base_url/$item->image" ?> alt="">
+                            if($item->image===null){
+
+                                ?>
+                                <div class="endurosmnetText">
+                                    <div class="textLeft">
+                                        <h4><?= $item->feedback_title ?></h4>
+                                        <h5><?= $item->client_name ?></h5>
+                                    </div>
+                                    <div class="textRight">
+                                        <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
                                     </div>
                                 </div>
-                                <div class="col-lg-1"></div>
-                            </div>
-                            <div class="endurosmnetText">
-                                <div class="textLeft">
-                                    <h4><?= $item->feedback_title ?></h4>
-                                    <h5><?= $item->client_name ?></h5>
+                                <p><?= $item->feedback ?></p>
+                            <?php
+                        
+                            }else{
+                                ?>
+                                <div class="row">
+                                    <div class="col-lg-1"></div>
+                                    <div class="col-lg-10">
+                                        <div class="endurosmnetImg">
+    
+                                            <img src=<?= "$base_url/$item->image" ?> alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1"></div>
                                 </div>
-                                <div class="textRight">
-                                    <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
+                                <div class="endurosmnetText">
+                                    <div class="textLeft">
+                                        <h4><?= $item->feedback_title ?></h4>
+                                        <h5><?= $item->client_name ?></h5>
+                                    </div>
+                                    <div class="textRight">
+                                        <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <p><?= $item->feedback ?></p>
-                        <?php
+                                <p><?= $item->feedback ?></p>
+                            <?php 
+                            }
                         }
                         ?>
 
@@ -1262,6 +1155,56 @@ $authorBgUrl = "$base_url/$about->image";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+    function showCat0(){
+        document.getElementById("pills-tabContent0").style.display="block";
+        document.getElementById("pills-tabContent1").style.display="none";
+        document.getElementById("pills-tabContent2").style.display="none";
+        document.getElementById("pills-tabContent3").style.display="none";
+        document.getElementById("pills-tabContent4").style.display="none";
+        document.getElementById("pills-tabContent5").style.display="none";
+    }
+    function showCat1(){
+        document.getElementById("pills-tabContent0").style.display="none";
+        document.getElementById("pills-tabContent1").style.display="block";
+        document.getElementById("pills-tabContent2").style.display="none";
+        document.getElementById("pills-tabContent3").style.display="none";
+        document.getElementById("pills-tabContent4").style.display="none";
+        document.getElementById("pills-tabContent5").style.display="none";
+    }
+    function showCat2(){
+        document.getElementById("pills-tabContent0").style.display="none";
+        document.getElementById("pills-tabContent1").style.display="none";
+        document.getElementById("pills-tabContent2").style.display="block";
+        document.getElementById("pills-tabContent3").style.display="none";
+        document.getElementById("pills-tabContent4").style.display="none";
+        document.getElementById("pills-tabContent5").style.display="none";
+    }
+    function showCat3(){
+        document.getElementById("pills-tabContent0").style.display="none";
+        document.getElementById("pills-tabContent1").style.display="none";
+        document.getElementById("pills-tabContent2").style.display="none";
+        document.getElementById("pills-tabContent3").style.display="block";
+        document.getElementById("pills-tabContent4").style.display="none";
+        document.getElementById("pills-tabContent5").style.display="none";
+    }
+    function showCat4(){
+        document.getElementById("pills-tabContent0").style.display="none";
+        document.getElementById("pills-tabContent1").style.display="none";
+        document.getElementById("pills-tabContent2").style.display="none";
+        document.getElementById("pills-tabContent3").style.display="none";
+        document.getElementById("pills-tabContent4").style.display="block";
+        document.getElementById("pills-tabContent5").style.display="none";
+    }
+    function showCat5(){
+        document.getElementById("pills-tabContent0").style.display="none";
+        document.getElementById("pills-tabContent1").style.display="none";
+        document.getElementById("pills-tabContent2").style.display="none";
+        document.getElementById("pills-tabContent3").style.display="none";
+        document.getElementById("pills-tabContent4").style.display="none";
+        document.getElementById("pills-tabContent5").style.display="block";
+    }
+	</script>
 
 
 </body>
