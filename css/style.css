@@ -234,7 +234,6 @@ p {
   background-color: #cbcbcc;
   border-radius: 50%;
   text-align: center;
-  line-height: 55px;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -243,6 +242,7 @@ p {
 .header .header_top .coverPhoto .Overly .photoAdd a i {
   font-size: 25px;
   color: black;
+  line-height: 50px;
 }
 
 .header .header_top .profileImg {
@@ -268,7 +268,6 @@ p {
   background-color: #cbcbcc;
   border-radius: 50%;
   text-align: center;
-  line-height: 45px;
   position: absolute;
   top: 30%;
   right: -10px;
@@ -278,6 +277,7 @@ p {
 .header .header_top .profileImg .Overly .photoAdd a i {
   font-size: 20px;
   color: black;
+  line-height: 40px;
 }
 
 .header .field {
@@ -383,7 +383,6 @@ p {
   text-align: center;
   padding: 0 10px 0 14px;
   box-shadow: 1px 1.1px 4px 1px #5453534d;
-  line-height: 50px;
   cursor: pointer;
 }
 
@@ -399,6 +398,7 @@ p {
   padding-right: 5px;
   font-size: 17px;
   color: black;
+  line-height: 50px;
 }
 
 .header .field .profileDahsed {
@@ -474,12 +474,9 @@ p {
   font-weight: 400;
 }
 
-.header .bio {
-  padding-top: 30px;
-}
 
 .header .bio .bio_info {
-  padding: 35px 20px 20px 20px;
+  padding: 10px 20px 0px 20px;
   border: 1px solid #cfcfcf;
   border-radius: 5px;
 }
@@ -502,7 +499,6 @@ p {
   font-size: 15px;
   color: #292828;
   font-weight: 400;
-  padding-top: 20px;
   line-height: 25px;
 }
 
@@ -568,11 +564,22 @@ p {
   color: #0072b1;
 }
 
-.header .iconLink ul li a .ig {
+.header .iconLink ul li a .ig  {
   border: 1px solid #ea8529;
   color: #ea8529;
 }
-
+.header .iconLink ul li a .wapp{
+  border: 1px solid rgb(37, 199, 77);
+  color: rgb(37, 199, 77);
+}
+.header .iconLink ul li a .gh{
+  border: 1px solid #333;
+  color: #333;
+}
+.header .iconLink ul li a .sk{
+  border: 1px solid #00acee;
+  color: #00acee;
+}
 .vedio {
   padding: 100px 0;
 }
@@ -683,6 +690,8 @@ p {
   width: 100%;
   border-radius: 10px;
   position: relative;
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-top: 22px;
 }
@@ -947,6 +956,8 @@ p {
 
 .service .service_wrapper .service_wrap .serviceImg {
   height: 310px;
+  display: flex;
+  justify-content: center ;
 }
 
 .service .service_wrapper .service_wrap .serviceImg img {
@@ -1103,6 +1114,8 @@ p {
   box-shadow: 1px 1.2px 4px 1px #9a99994d;
   margin-top: 20px;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
 }
 
 .portfolio .portfolio_wrapper .tab-content .tab-pane .portItem img {

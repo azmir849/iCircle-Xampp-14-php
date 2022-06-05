@@ -8,8 +8,11 @@ portfolioRender = (portfolios) => {
   keys = Object.keys(portfolios);
  
   const length = keys.length;
-  // console.log(length);
+  // console.log("length "+length);
   // console.log(keys.length);
+  if(length<=0){
+    document.getElementById("portfolioSection").style.display = "none";
+  }
 
   let cat = ``;
   let contentIndex0 = ``;
@@ -265,7 +268,9 @@ render = (data) => {
 };
 
 //Fetch api
-fetch("https://icircles.app/api/profile/usermicrosite/tamim")
+var url = document.URL;
+let usrnm = url.split('/'); 
+fetch("https://icircles.app/api/profile/usermicrosite/"+usrnm[usrnm.length-1])
   .then((responsse) => responsse.json())
   .then((data) => { 
     console.log(data);

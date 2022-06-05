@@ -12,12 +12,12 @@
 	
 	.header .header_top .profileImg .Overly .photoAdd a i {
 		font-size: 15px;
+		line-height: 30px;
 	}
 	.header .header_top .profileImg .Overly .photoAdd {
 		height: 30px;
 		width: 30px;
 		border-radius: 50%;
-		line-height: 30px;
 		top: 22%;
 		right: -18px;
 		transform: translateY(-30%);
@@ -26,13 +26,13 @@
 	.header .header_top .coverPhoto .Overly .photoAdd {
 		height: 35px;
 		width: 35px;
-		line-height: 35px;
 		top: 15px;
 		right: 15px;
 	}
 	.header .field .profileConnect .btn_1 a {
 		font-size: 12px;
 		line-height: 45px;
+
 	}
 	.header .field .profileConnect .btn_2 a {
 		color: #000;
@@ -61,6 +61,7 @@
 
 	.header .header_top .coverPhoto .Overly .photoAdd a i {
 		font-size: 17px;
+		line-height: 35px !important;
 	}
 	.header .field {
 		padding-top: 57px;
@@ -85,6 +86,9 @@
 	}
 	.header .field .profileInfo ul li {
 		padding: 3px 0;
+	}
+	.header .field .profileInfo ul li .vh{
+		display: none !important;
 	}
 	.header .field .profileInfo ul li a i {
 		font-size: 15px;
@@ -118,6 +122,9 @@
 	}
 	.header .field .Company_logo .logo img {
 		width: 90px;
+	}
+	.header .bio .bio_info{
+		margin-top: 20px;
 	}
 	.header .bio .bio_info h2 {
 		font-size: 18px;
@@ -3323,6 +3330,7 @@
 		font-size: 13px;
 		line-height: 50px;
 	}
+
 	.header .field .profileConnect {
 		display: flex;
 		align-items: center;
