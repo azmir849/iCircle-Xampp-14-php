@@ -206,11 +206,6 @@ p {
 
 /*     SCSS Sections Connections 
 ------------------------------------*/
-.header {
-  /* Cover Photo */
-  /* Field */
-  /* Bio */
-}
 
 .header .header_top {
   position: relative;
@@ -220,11 +215,14 @@ p {
 .header .header_top .coverPhoto {
   position: relative;
   height: 380px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .header .header_top .coverPhoto img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 10px;
 }
 
@@ -658,6 +656,86 @@ p {
   color: white;
 }
 
+
+
+/* .centeredOverly {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.centeredOverly .photoAdd i {
+  font-size: 30px;
+  color: white;
+}
+
+.gallery .sectionHeader h4 {
+  font-size: 28px;
+  color: black;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.gallery .sectionHeader .sectionItem ul li {
+  display: inline-block;
+  font-size: 20px;
+  padding-left: 20px;
+  color: black;
+}
+
+.gallery .sectionHeader .sectionItem ul li:hover {
+  color: #007df2;
+}
+
+.gallery_wrapper .gallery_wrap {
+  height: 278px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery_wrapper .gallery_wrap:hover .centeredOverly {
+  opacity: 1;
+  transition: all linear .5s;
+}
+
+.gallery_wrapper .gallery_wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.gallery_wrapper .gallery_wrap .centeredOverly {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.gallery_wrapper .gallery_wrap .centeredOverly .photoAdd {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery_wrapper .gallery_wrap .centeredOverly .photoAdd a i {
+  font-size: 45px;
+  color: white;
+}  */
+
+
 .gallery {
   padding-bottom: 100px;
 }
@@ -725,7 +803,7 @@ p {
   transform: translate(-50%, -50%);
 }
 
-.gallery .gallery_wrapper .gallery_wrap .Overly .photoAdd a i {
+.gallery .gallery_wrapper .gallery_wrap .Overly .photoAdd  i {
   font-size: 45px;
   color: white;
 }
@@ -1638,4 +1716,97 @@ color: #7c7c7c;
 .backtotop.show {
   opacity: 1;
   visibility: visible;
+}
+
+
+
+
+/* ***************************************** */
+.notification {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px 15px;
+  margin: 0;
+  text-align: center;
+  z-index: 1;
+  background: var(--yellow);
+}
+
+@media (max-width: 700px) {
+  .notification {
+    display: none;
+  }
+}
+
+
+/* IMAGE GRID STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.image-grid figure {
+  margin-bottom: 0;
+}
+
+.image-grid img {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s;
+}
+
+.image-grid a:hover img {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.35);
+}
+
+
+/* LIGHTBOX STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.lightbox-modal .modal-content {
+  background: var(--lightbox);
+}
+
+.lightbox-modal .btn-close {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  font-size: 1.2rem;
+  z-index: 10;
+}
+
+.lightbox-modal .modal-body {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  text-align: center;
+}
+
+.lightbox-modal img {
+  width: auto;
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+.lightbox-modal .carousel-caption {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(36, 36, 36, 0.75);
+}
+
+.lightbox-modal .carousel-control-prev,
+.lightbox-modal .carousel-control-next {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  width: auto;
+}
+
+.lightbox-modal .carousel-control-prev {
+  left: 10px;
+}
+
+.lightbox-modal .carousel-control-next {
+  right: 10px;
+}
+
+.modal-backdrop{
+  z-index: 0 !important;
 }

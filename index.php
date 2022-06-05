@@ -213,49 +213,47 @@ $authorBgUrl = "$base_url/$about->image";
                             <ul>
                                 <?php
                                 if ($about->web_site) { ?>
-                                    <li>My personal website :<a href="#"> <i class="fa-solid fa-phone"></i><?= $about->web_site ?><a>
-                                    <li><?php
-
+                                    <li>My personal website : <a target="_blank" href=<?= " $about->web_site" ?>><?= $about->web_site ?></a></li>
+                                    <?php
                                     }
-                                    if ($about->resume) { ?>
-                                    <li>
-                                    <li>My Resume: <a target="_blank" href=<?= "$base_url/$about->resume" ?>>Download Resume</a></li><?php
-                                                                                                                                    }
-                                                                                                                                        ?>
-
+                                if ($about->resume) { ?>
+                                    <li>My Resume: <a target="_blank" href=<?= "$base_url/$about->resume" ?>>Download Resume</a></li>
+                                    <?php
+                                    }
+                                    ?>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6">
+                    <div class="col-md-6 col-lg-6 mb-3">
                         <div class="iconLink">
                             <ul>
                                 <?php
                                 if ($about->facebook) { ?>
-                                    <li><a href=${about.facebook}><i class="fa-brands fa-facebook  fb"></i></a></li>
+                                    <li><a target="_blank" href=<?=$about->facebook?>><i class="fa-brands fa-facebook  fb"></i></a></li>
                                 <?php
                                 }
                                 if ($about->twitter) { ?>
-                                    <li><a href=${about.twitter}><i class="fa-brands fa-twitter-square tr"></i></a></li>
+                                    <li><a target="_blank" href=<?=$about->twitter?>><i class="fa-brands fa-twitter-square tr"></i></a></li>
                                 <?php
                                 }
                                 if ($about->instagram) { ?>
-                                    <li><a href=${about.instagram}><i class="fa-brands fa-instagram-square ig"></i></a></li>
+                                    <li><a target="_blank" href=<?=$about->instagram?>><i class="fa-brands fa-instagram-square ig"></i></a></li>
                                 <?php
                                 }
                                 if ($about->linkedin) { ?>
-                                    <li><a href=${about.linkedin}><i class="fa-brands fa-linkedin lk"></i></a></li>
+                                    <li><a target="_blank" href=<?=$about->linkedin?>><i class="fa-brands fa-linkedin lk"></i></a></li>
                                 <?php
                                 }
                                 if ($about->github) { ?>
-                                    <li><a href=${about.github}><i class="fa-brands fa-github gh"></i></a></li>
+                                    <li><a target="_blank" href=<?=$about->github?>><i class="fa-brands fa-github gh"></i></a></li>
                                 <?php
                                 }
                                 if ($about->whatsapp) { ?>
-                                    <li><a href=${about.whatsapp}><i class="fa-brands fa-whatsapp wapp"></i></a></li>
+                                    <li><a target="_blank" href=<?="https://web.whatsapp.com/send?text=$about->whatsapp"?>><i class="fa-brands fa-whatsapp wapp"></i></a></li>
                                 <?php
                                 }
                                 if ($about->skype) { ?>
-                                    <li><a href=${about.skype}><i class="fa-brands fa-skype sk"></i></a></li>
+                                    <li><a target="_blank" href=<?="https://secure.skype.com/portal/profile?$about->skype"?>><i class="fa-brands fa-skype sk"></i></a></li>
                                 <?php
                                 }
 
@@ -358,26 +356,47 @@ $authorBgUrl = "$base_url/$about->image";
                         </ul>
                     </div>
                 </div>
-                <div class="gallery_wrapper">
-                    <div class="row">
-                        <?php foreach ($profile_images as $key => $item) { ?>
-                            <div class="col-6 col-lg-4">
-                                <div class="gallery_wrap">
-                                    <img src=<?= "https://icircles.app/uploads/user/${username}/$item->image" ?> alt="">
-                                    <div class="Overly">
-                                        <div class="photoAdd">
-                                            <a href="#"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </div>
+
+
+                <section class="image-grid">
+                    <div class="gallery_wrapper container-xxl">
+                        <div class="row gy-4">
+                            <?php foreach ($profile_images as $key => $item) { ?>
+                                <div class="col-12 col-sm-6 col-md-4">
+                                    <figure class="gallery_wrap">
+                                        <a class="d-block" href="">
+                                            <img src=<?= "https://icircles.app/uploads/user/${username}/$item->image" ?> class="img-fluid" alt="" data-caption="">
+                                            <div class="Overly">
+                                                <div class="photoAdd">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </figure>
+                                </div>
+
+                            <?php
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+                </section>
+
+                <div class="modal lightbox-modal" id="lightbox-modal" tabindex="-1">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-body">
+                                <div class="container-fluid p-0">
+                                    <!-- JS content here -->
                                 </div>
                             </div>
-
-                        <?php
-                        }
-                        ?>
-
+                        </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
@@ -390,7 +409,7 @@ $authorBgUrl = "$base_url/$about->image";
     ----------------------------------------------->
     <?php
     if (count($experiences) > 0) { ?>
-        <section>
+        <section class="mt-3">
             <div class="experiance">
                 <div class="container">
                     <div class="sectionHeader">
@@ -1106,93 +1125,93 @@ $authorBgUrl = "$base_url/$about->image";
     ----------------------------------------------->
     <?php
     if (count($testimonials) > 0) { ?>
-       <section>
-        <div class="endurosmnet">
-            <div class="container">
-                <div class="sectionHeader">
-                    <?php
-                    if (count($testimonials) > 0) { ?>
-                        <h4>Endurosment</h4>
-                    <?php
-                    }
-                    ?>
-                    <div class="sectionItem">
-                        <ul>
-                            <?php
-                            if (count($testimonials) > 0) { ?>
-                                <li><i class="fa-solid fa-video"></i></li>
-                                <li><i class="fa-solid fa-eye"></i></li>
-                                <li><i class="fa-solid fa-plus"></i></li>
-                                <li><i class="fa-solid fa-pen-to-square"></i></li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-                <div class="endurosmnet_wrapper">
-
-                    <div class="row">
-
-                        <?php foreach ($testimonials as $key => $item) {
-                            $dateTimeString = $testimonials->created_date;
-                            $datetime = new DateTime($dateTimeString);
-                            $year = $datetime->format('Y');
-                            $month = $datetime->format('M');
-                            $day = $datetime->format('D');
-                            $date = $datetime->format('d');
-
-                            if ($item->image === null) {
-
-                        ?>
-                                <div class="endurosmnetText">
-                                    <div class="textLeft">
-                                        <h4><?= $item->feedback_title ?></h4>
-                                        <h5><?= $item->client_name ?></h5>
-                                    </div>
-                                    <div class="textRight">
-                                        <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
-                                    </div>
-                                </div>
-                                <p><?= $item->feedback ?></p>
-                            <?php
-
-                            } else {
-                            ?>
-                                <div class="row">
-                                    <div class="col-lg-1"></div>
-                                    <div class="col-lg-10">
-                                        <div class="endurosmnetImg">
-
-                                            <img src=<?= "$base_url/$item->image" ?> alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-1"></div>
-                                </div>
-                                <div class="endurosmnetText">
-                                    <div class="textLeft">
-                                        <h4><?= $item->feedback_title ?></h4>
-                                        <h5><?= $item->client_name ?></h5>
-                                    </div>
-                                    <div class="textRight">
-                                        <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
-                                    </div>
-                                </div>
-                                <p><?= $item->feedback ?></p>
+        <section>
+            <div class="endurosmnet">
+                <div class="container">
+                    <div class="sectionHeader">
                         <?php
-                            }
+                        if (count($testimonials) > 0) { ?>
+                            <h4>Endurosment</h4>
+                        <?php
                         }
                         ?>
+                        <div class="sectionItem">
+                            <ul>
+                                <?php
+                                if (count($testimonials) > 0) { ?>
+                                    <li><i class="fa-solid fa-video"></i></li>
+                                    <li><i class="fa-solid fa-eye"></i></li>
+                                    <li><i class="fa-solid fa-plus"></i></li>
+                                    <li><i class="fa-solid fa-pen-to-square"></i></li>
+                                <?php
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="endurosmnet_wrapper">
 
+                        <div class="row">
+
+                            <?php foreach ($testimonials as $key => $item) {
+                                $dateTimeString = $testimonials->created_date;
+                                $datetime = new DateTime($dateTimeString);
+                                $year = $datetime->format('Y');
+                                $month = $datetime->format('M');
+                                $day = $datetime->format('D');
+                                $date = $datetime->format('d');
+
+                                if ($item->image === null) {
+
+                            ?>
+                                    <div class="endurosmnetText">
+                                        <div class="textLeft">
+                                            <h4><?= $item->feedback_title ?></h4>
+                                            <h5><?= $item->client_name ?></h5>
+                                        </div>
+                                        <div class="textRight">
+                                            <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
+                                        </div>
+                                    </div>
+                                    <p><?= $item->feedback ?></p>
+                                <?php
+
+                                } else {
+                                ?>
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-10">
+                                            <div class="endurosmnetImg">
+
+                                                <img src=<?= "$base_url/$item->image" ?> alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1"></div>
+                                    </div>
+                                    <div class="endurosmnetText">
+                                        <div class="textLeft">
+                                            <h4><?= $item->feedback_title ?></h4>
+                                            <h5><?= $item->client_name ?></h5>
+                                        </div>
+                                        <div class="textRight">
+                                            <h4><?= $day ?>, <?= $month ?> <?= $date ?>, <?= $year ?></h4>
+                                        </div>
+                                    </div>
+                                    <p><?= $item->feedback ?></p>
+                            <?php
+                                }
+                            }
+                            ?>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     <?php
     }
     ?>
-    
+
     <!--      Endurosmnet Section Start 
     ----------------------------------------------->
     <!--      Add New Section Start 
@@ -1238,6 +1257,7 @@ $authorBgUrl = "$base_url/$about->image";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-lightbox/0.7.0/bootstrap-lightbox.min.js" integrity="sha512-pG6Jpi0rC+Tc4UBLolT53rjjfGNuHBgEGqe6E29doS/zTJhSI9mGIwkiq+wSP1InaQs61vpQ+UhNgTUhyyYGDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         function showCat0() {
             document.getElementById("pills-tabContent0").style.display = "block";
@@ -1293,6 +1313,78 @@ $authorBgUrl = "$base_url/$about->image";
             document.getElementById("pills-tabContent5").style.display = "block";
         }
     </script>
+    <script>
+        const imageGrid = document.querySelector(".image-grid");
+        const links = imageGrid.querySelectorAll("a");
+        const imgs = imageGrid.querySelectorAll("img");
+        const lightboxModal = document.getElementById("lightbox-modal");
+        const bsModal = new bootstrap.Modal(lightboxModal);
+        const modalBody = document.querySelector(".modal-body .container-fluid");
+
+        for (const link of links) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const currentImg = link.querySelector("img");
+                const lightboxCarousel = document.getElementById("lightboxCarousel");
+                if (lightboxCarousel) {
+                    const parentCol = link.parentElement.parentElement;
+                    const index = [...parentCol.parentElement.children].indexOf(parentCol);
+                    const bsCarousel = new bootstrap.Carousel(lightboxCarousel);
+                    bsCarousel.to(index);
+                } else {
+                    createCarousel(currentImg);
+                }
+                bsModal.show();
+            });
+        }
+
+        function createCarousel(img) {
+            const markup = `
+    <div id="lightboxCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="false">
+      <div class="carousel-inner">
+        ${createSlides(img)}
+      </div> 
+      <button class="carousel-control-prev" type="button" data-bs-target="#lightboxCarousel" data-bs-slide="prev">
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+       <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#lightboxCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    `;
+
+            modalBody.innerHTML = markup;
+        }
+
+        function createSlides(img) {
+            let markup = "";
+            const currentImgSrc = img.getAttribute("src");
+
+            for (const img of imgs) {
+                const imgSrc = img.getAttribute("src");
+                const imgAlt = img.getAttribute("alt");
+                const imgCaption = img.getAttribute("data-caption");
+
+                markup += `
+    <div class="carousel-item${currentImgSrc === imgSrc ? " active" : ""}">
+      <img src=${imgSrc} alt=${imgAlt}>
+    </div>
+    `;
+            }
+
+            return markup;
+        }
+
+        function createCaption(caption) {
+            return `<div class="carousel-caption">
+     <p class="m-0">${caption}</p>
+    </div>`;
+        }
+    </script>
+
+
 
 
 </body>
