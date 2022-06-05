@@ -151,7 +151,7 @@ $authorBgUrl = "$base_url/$about->image";
                                     <a href="#"> <i class="fa-solid fa-plus"></i> Add Connections</a>
                                 </div>
                                 <div class="btn_2">
-                                    <a href="#"> <i class="fa-solid fa-comment"></i> Massage </a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa-solid fa-comment"></i> Message </a>
                                 </div>
                                 <div class="btn_3">
                                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -1214,6 +1214,81 @@ $authorBgUrl = "$base_url/$about->image";
 
     <!--      Endurosmnet Section Start 
     ----------------------------------------------->
+
+    <!-- --------------------Modal contact form----------------- -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section>
+          <div class="contact" id="contact">
+               <div class="container">
+                    <div class="contact_wrapper">
+                         <div class="row">
+                              
+                              <div class="col-lg-12 p-0">
+                                   <div class="contact_inner">
+                                        <h3>Get in<span> Touch</span></h3>
+                                        <p>My best services will make your business easy. Sed perspiciatis unde omnis
+                                             natus voluptatem accusantie doloremue laudantium totam aperiam.</p>
+                                        <div class="row">
+                                             <div class="col-12 col-lg-12">
+                                                  <div class="form_wrapper">
+                                                       <form action="#">
+                                                            <input class="form_control" type="text"
+                                                                 placeholder="Your Name">
+                                                       </form>
+                                                  </div>
+                                             </div>
+                                             <div class="col-12  col-lg-6">
+                                                  <div class="form_wrapper">
+                                                       <form action="#">
+                                                            <input class="form_control" type="text" placeholder="Email">
+                                                       </form>
+                                                  </div>
+                                             </div>
+                                             <div class="col-12  col-lg-6">
+                                                  <div class="form_wrapper">
+                                                       <form action="#">
+                                                            <input class="form_control" type="text" placeholder="Phone">
+                                                       </form>
+                                                  </div>
+                                             </div>
+                                             <div class="col-12  col-lg-12">
+                                                  <div class="form_wrapper">
+                                                       <form action="#">
+                                                            <input class="form_control massage" type="text"
+                                                                 placeholder="Massage">
+                                                       </form>
+                                                  </div>
+                                             </div>
+                                             <div class="col-lg-12 text-end">
+                                                  <div class="contact_btn">
+                                                       <a href="#">Send Massage</a>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     <!--      Add New Section Start 
      ----------------------------------------------->
     <section>
