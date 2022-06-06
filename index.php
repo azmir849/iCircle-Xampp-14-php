@@ -41,6 +41,7 @@ $portfolios = $result->portfolios;
 $blogs = $result->blogs;
 // echo '<script>console.log(' . json_encode(count($blogs)) . ')</script>';
 $testimonials = $result->testimonials;
+$app_days = $result->app_days;
 
 
 
@@ -150,6 +151,10 @@ $authorBgUrl = "$base_url/$about->image";
                                 <div class="btn_1">
                                     <a href="#"> <i class="fa-solid fa-plus"></i> Add Connections</a>
                                 </div>
+                                <div class="btn_1">
+                                    <a href="#appointmentSection"> <i class="fa-solid fa-plus"></i> Get Appointment</a>
+                                </div>
+                                <!-- <button class="btn btn-primary">Appointment</button> -->
                                 <div class="btn_2">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <i class="fa-solid fa-comment"></i> Message </a>
                                 </div>
@@ -214,13 +219,13 @@ $authorBgUrl = "$base_url/$about->image";
                                 <?php
                                 if ($about->web_site) { ?>
                                     <li>My personal website : <a target="_blank" href=<?= " $about->web_site" ?>><?= $about->web_site ?></a></li>
-                                    <?php
-                                    }
+                                <?php
+                                }
                                 if ($about->resume) { ?>
                                     <li>My Resume: <a target="_blank" href=<?= "$base_url/$about->resume" ?>>Download Resume</a></li>
-                                    <?php
-                                    }
-                                    ?>
+                                <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -229,31 +234,31 @@ $authorBgUrl = "$base_url/$about->image";
                             <ul>
                                 <?php
                                 if ($about->facebook) { ?>
-                                    <li><a target="_blank" href=<?=$about->facebook?>><i class="fa-brands fa-facebook  fb"></i></a></li>
+                                    <li><a target="_blank" href=<?= $about->facebook ?>><i class="fa-brands fa-facebook  fb"></i></a></li>
                                 <?php
                                 }
                                 if ($about->twitter) { ?>
-                                    <li><a target="_blank" href=<?=$about->twitter?>><i class="fa-brands fa-twitter-square tr"></i></a></li>
+                                    <li><a target="_blank" href=<?= $about->twitter ?>><i class="fa-brands fa-twitter-square tr"></i></a></li>
                                 <?php
                                 }
                                 if ($about->instagram) { ?>
-                                    <li><a target="_blank" href=<?=$about->instagram?>><i class="fa-brands fa-instagram-square ig"></i></a></li>
+                                    <li><a target="_blank" href=<?= $about->instagram ?>><i class="fa-brands fa-instagram-square ig"></i></a></li>
                                 <?php
                                 }
                                 if ($about->linkedin) { ?>
-                                    <li><a target="_blank" href=<?=$about->linkedin?>><i class="fa-brands fa-linkedin lk"></i></a></li>
+                                    <li><a target="_blank" href=<?= $about->linkedin ?>><i class="fa-brands fa-linkedin lk"></i></a></li>
                                 <?php
                                 }
                                 if ($about->github) { ?>
-                                    <li><a target="_blank" href=<?=$about->github?>><i class="fa-brands fa-github gh"></i></a></li>
+                                    <li><a target="_blank" href=<?= $about->github ?>><i class="fa-brands fa-github gh"></i></a></li>
                                 <?php
                                 }
                                 if ($about->whatsapp) { ?>
-                                    <li><a target="_blank" href=<?="https://web.whatsapp.com/send?text=$about->whatsapp"?>><i class="fa-brands fa-whatsapp wapp"></i></a></li>
+                                    <li><a target="_blank" href=<?= "https://web.whatsapp.com/send?text=$about->whatsapp" ?>><i class="fa-brands fa-whatsapp wapp"></i></a></li>
                                 <?php
                                 }
                                 if ($about->skype) { ?>
-                                    <li><a target="_blank" href=<?="https://secure.skype.com/portal/profile?$about->skype"?>><i class="fa-brands fa-skype sk"></i></a></li>
+                                    <li><a target="_blank" href=<?= "https://secure.skype.com/portal/profile?$about->skype" ?>><i class="fa-brands fa-skype sk"></i></a></li>
                                 <?php
                                 }
 
@@ -1212,80 +1217,179 @@ $authorBgUrl = "$base_url/$about->image";
     }
     ?>
 
-    <!--      Endurosmnet Section Start 
+    <!--      Endurosmnet Section End 
     ----------------------------------------------->
+    <!-- -------------------Appoinment section start------------------ -->
+    <section id="appointmentSection">
+        <div class="service">
+            <div class="container">
+                <div class="sectionHeader">
+                    <h4>Appointment</h4>
+                    <div class="sectionItem">
+                        <ul>
+                            <li><i class="fa-solid fa-video"></i></li>
+                            <li><i class="fa-solid fa-eye"></i></li>
+                            <li><i class="fa-solid fa-plus"></i></li>
+                            <li><i class="fa-solid fa-pen-to-square"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service_wrapper">
+                    <div class="row d-flex">
+
+                        <div class="col-md-12 appoinmentCard">
+                            <h3>Available Days and Timings</h3>
+                            <?php foreach ($app_days as $key => $item)
+                             { 
+                                if($item->day==='1' && $key==0){
+                                    ?><p>Saturday  :  (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                if($item->day==='2' && $key==1){
+                                    ?><p>Sunday    : (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                if($item->day==='3' && $key==2){
+                                    ?><p>Monday    : (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                if($item->day==='4' && $key==3){
+                                    ?><p>Tuesday   : (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                if($item->day==='5' && $key==4){
+                                    ?><p>Wednesday : (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                if($item->day==='6' && $key==5){
+                                    ?><p>Thursday  : (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                if($item->day==='7' && $key==6){
+                                    ?><p>Friday    : (<?=$item->book_time_start ." To ". $item->book_time_end?>)</p> <?php
+                                   
+                                }
+                                // echo '<script>console.log(' . json_encode($item->day) . ')</script>';
+                                // echo '<script>console.log(' . json_encode($key) . ')</script>';
+                            ?>
+                            <?php
+                            }
+                            ?>
+                            <!-- <p>Saturday (6.45 AM To 7.45 PM)</p>
+                            <p>Sunday (6.45 AM To 7.45 PM)</p> -->
+                            <div class="row mt-5">
+                                <div class="col-md-12 mb-3" data-animate-effect="fadeInBottom">
+                                    <label for="title">TITLE</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="" id="title" name="title">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3" data-animate-effect="fadeInBottom">
+                                    <label for="email">EMAIL</label>
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control" placeholder="" id="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3" data-animate-effect="fadeInBottom">
+                                    <label for="date">DATE</label>
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control" placeholder="" id="date" name="date">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3" data-animate-effect="fadeInBottom">
+                                    <label for="formTime">FROM TIME</label>
+                                    <div class="input-group mb-3">
+                                        <input type="time" class="form-control" placeholder="" id="fromTime" name="fromTime">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3" data-animate-effect="fadeInBottom">
+                                    <label for="toTime">TO TIME</label>
+                                    <div class="input-group mb-3">
+                                        <input type="time" class="form-control" placeholder="" id="toTime" name="toTime">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="formButton" data-animate-effect="fadeInBottom">Set Appointment</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- -------------------Appoinment section end------------------ -->
 
     <!-- --------------------Modal contact form----------------- -->
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <section>
-          <div class="contact" id="contact">
-               <div class="container">
-                    <div class="contact_wrapper">
-                         <div class="row">
-                              
-                              <div class="col-lg-12 p-0">
-                                   <div class="contact_inner">
-                                        <h3>Get in<span> Touch</span></h3>
-                                        <p>My best services will make your business easy. Sed perspiciatis unde omnis
-                                             natus voluptatem accusantie doloremue laudantium totam aperiam.</p>
-                                        <div class="row">
-                                             <div class="col-12 col-lg-12">
-                                                  <div class="form_wrapper">
-                                                       <form action="#">
-                                                            <input class="form_control" type="text"
-                                                                 placeholder="Your Name">
-                                                       </form>
-                                                  </div>
-                                             </div>
-                                             <div class="col-12  col-lg-6">
-                                                  <div class="form_wrapper">
-                                                       <form action="#">
-                                                            <input class="form_control" type="text" placeholder="Email">
-                                                       </form>
-                                                  </div>
-                                             </div>
-                                             <div class="col-12  col-lg-6">
-                                                  <div class="form_wrapper">
-                                                       <form action="#">
-                                                            <input class="form_control" type="text" placeholder="Phone">
-                                                       </form>
-                                                  </div>
-                                             </div>
-                                             <div class="col-12  col-lg-12">
-                                                  <div class="form_wrapper">
-                                                       <form action="#">
-                                                            <input class="form_control massage" type="text"
-                                                                 placeholder="Massage">
-                                                       </form>
-                                                  </div>
-                                             </div>
-                                             <div class="col-lg-12 text-end">
-                                                  <div class="contact_btn">
-                                                       <a href="#">Send Massage</a>
-                                                  </div>
-                                             </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <section>
+                        <div class="contact" id="contact">
+                            <div class="container">
+                                <div class="contact_wrapper">
+                                    <div class="row">
+
+                                        <div class="col-lg-12 p-0">
+                                            <div class="contact_inner">
+                                                <h3>Get in<span> Touch</span></h3>
+                                                <p>My best services will make your business easy. Sed perspiciatis unde omnis
+                                                    natus voluptatem accusantie doloremue laudantium totam aperiam.</p>
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-12">
+                                                        <div class="form_wrapper">
+                                                            <form action="#">
+                                                                <input class="form_control" type="text" placeholder="Your Name">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12  col-lg-6">
+                                                        <div class="form_wrapper">
+                                                            <form action="#">
+                                                                <input class="form_control" type="text" placeholder="Email">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12  col-lg-6">
+                                                        <div class="form_wrapper">
+                                                            <form action="#">
+                                                                <input class="form_control" type="text" placeholder="Phone">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12  col-lg-12">
+                                                        <div class="form_wrapper">
+                                                            <form action="#">
+                                                                <input class="form_control massage" type="text" placeholder="Massage">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 text-end">
+                                                        <div class="contact_btn">
+                                                            <a href="#">Send Massage</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-          </div>
-     </section>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 
 

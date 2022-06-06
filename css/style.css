@@ -339,18 +339,18 @@ p {
   background-color: #007df2;
   border-radius: 5px;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 5px;
 }
 
 .header .field .profileConnect .btn_1 a {
   color: white;
-  font-size: 17px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 50px;
 }
 
 .header .field .profileConnect .btn_1 a i {
-  font-size: 16px;
+  font-size: 12px;
   padding-right: 5px;
 }
 
@@ -359,13 +359,13 @@ p {
   background-color: white;
   border-radius: 5px;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 15px;
   box-shadow: 1px 1.1px 4px 1px #5453534d;
 }
 
 .header .field .profileConnect .btn_2 a {
   color: black;
-  font-size: 17px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 50px;
 }
@@ -1815,6 +1815,66 @@ color: #7c7c7c;
 padding: 0 !important;
 }
 
+.appoinmentCard  {
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ }
+ 
+ .appoinmentCard h3{
+  color: #007df2;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+ }
+ .appoinmentCard p{
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0 !important;
+ }
+
+ .input-group {
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #eeeded,
+             20px 20px 60px #ffffff;
+ }
+ .input-group input{
+  border: white;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+ }
+ .input-group textarea{
+  border: white;
+ }
+ .input-group 
+ .form-control:last-child, 
+ .input-group-addon:last-child, 
+ .input-group-btn:last-child > 
+ .btn, .input-group-btn:last-child > 
+ .btn-group > .btn, .input-group-btn:last-child > 
+ .dropdown-toggle, .input-group-btn:first-child > 
+ .btn:not(:first-child), 
+ .input-group-btn:first-child > 
+ .btn-group:not(:first-child) > .btn {
+  font-size: 18px;
+  color: #7c7c7c;
+}
+label{
+  font-weight: 700 !important;
+}
+.formButton {
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: white;
+  background-color: #007df2;
+  text-transform: uppercase;
+  font-size: 15px;
+}
 .contact .contact_wrapper {
   position: relative;
 }
